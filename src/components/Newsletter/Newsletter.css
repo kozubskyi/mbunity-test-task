@@ -1,0 +1,67 @@
+.Newsletter {
+	background-color: #0d0d0d;
+	border-radius: 5px;
+	padding: 14px;
+}
+
+.Newsletter .title {
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 1.5em;
+	margin-bottom: 23px;
+}
+
+.Newsletter form {
+	display: flex;
+	flex-wrap: nowrap;
+	margin-bottom: 20px;
+}
+
+.Newsletter form input {
+	width: 100%;
+	border: none;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	background-color: #1a1a1a;
+	font-size: 11px;
+	line-height: 1.5em;
+	color: white;
+	padding: 11px 10px;
+	font-family: inherit;
+	outline: none;
+}
+
+.Newsletter form button[type='submit'] {
+	background-color: black;
+	color: white;
+	font-family: inherit;
+	font-size: 12px;
+	line-height: 1.5em;
+	font-weight: 500;
+	border: none;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	min-width: 105px;
+}
+
+.Newsletter .info {
+	font-family: 'Manrope', inherit, sans-serif;
+	font-weight: 500;
+	font-size: 13px;
+	line-height: 18px;
+	color: #ffffff;
+	opacity: 0.5;
+}
+
+@media screen and (min-width: 992px) {
+	.Newsletter {
+		margin-left: 60px;
+		border-radius: 10px;
+		max-width: 320px;
+	}
+
+	.Newsletter .title {
+		font-size: 18px;
+		margin-bottom: 29px;
+	}
+}

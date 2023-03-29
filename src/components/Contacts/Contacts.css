@@ -1,0 +1,48 @@
+.Contacts {
+	font-size: 12px;
+	line-height: 1.5em;
+}
+
+.Contacts li {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.Contacts li:not(:last-child) {
+	margin-bottom: 15px;
+}
+
+.Contacts a {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.Contacts a svg {
+	min-width: 24px;
+	min-height: 24px;
+	margin: 0 0 10px 0;
+}
+
+@media screen and (min-width: 992px) {
+	.Contacts {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		font-size: 16px;
+	}
+
+	.Contacts li:not(:last-child) {
+		margin-bottom: 50px;
+	}
+
+	.Contacts a {
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+
+	.Contacts a svg {
+		margin: 0 25px 0 0;
+	}
+}

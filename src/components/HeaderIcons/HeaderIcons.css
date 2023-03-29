@@ -1,0 +1,31 @@
+.HeaderIcons {
+	display: flex;
+}
+
+.HeaderIcons a {
+	border: 1px solid black;
+	border-radius: 50%;
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+	min-width: 31px;
+	min-height: 31px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+/* .HeaderIcons a.active {
+	border: 2px solid black;
+} */
+
+.HeaderIcons a:not(:first-child) {
+	margin-left: 36px;
+}
+
+@media screen and (min-width: 576px) {
+	.HeaderIcons {
+		margin-left: 68px;
+	}
+}

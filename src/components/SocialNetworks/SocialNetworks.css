@@ -1,0 +1,36 @@
+.Social-networks-list {
+	display: flex;
+	justify-content: center;
+}
+
+.Social-networks-list li:not(:last-of-type) {
+	margin-right: 24px;
+}
+
+.Social-networks-list a {
+	background: #262626;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 30px;
+	min-height: 30px;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+.Social-networks-list a:hover,
+.Social-networks-list a:focus {
+	background-color: white;
+	color: black;
+}
+
+.Social-networks-list svg {
+	width: 18px;
+	height: 18px;
+}
+
+@media screen and (min-width: 992px) {
+	.Social-networks-list {
+		justify-content: flex-start;
+	}
+}

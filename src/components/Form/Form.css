@@ -1,0 +1,194 @@
+.Form {
+	padding: 30px 16px 59px;
+	font-size: 12px;
+	position: relative;
+	background-repeat: no-repeat;
+}
+
+.Form::after {
+	content: '';
+	left: 18%;
+	bottom: -5px;
+	position: absolute;
+	width: 118px;
+	height: 59px;
+	background-image: url(../../images/letter_send.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.Form .main-info,
+.Form .subject,
+.Form .message {
+	margin-bottom: 25px;
+}
+
+.Form .label-with-input,
+.Form .message {
+	display: flex;
+	flex-direction: column-reverse;
+	line-height: 20px;
+	font-weight: 500;
+}
+
+.Form .label-with-input {
+	margin-bottom: 20px;
+}
+
+.Form label {
+	color: #8d8d8d;
+}
+
+.Form input {
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 1px solid #8d8d8d;
+	border-radius: 0;
+	background-color: transparent;
+	padding: 10px 0;
+	margin: 0;
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 500;
+	outline: none;
+}
+
+.Form input:focus-within {
+	border-bottom: 1px solid black;
+}
+
+.Form input:focus-within + label,
+.Form .label-with-input input:valid + label {
+	color: black;
+}
+
+.Form input::placeholder {
+	font-weight: 500;
+}
+
+.Form .subject p {
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.5em;
+	margin-bottom: 10px;
+}
+
+.Form .subject label {
+	display: flex;
+	align-items: center;
+}
+
+.Form .radio-inputs {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -7px -10px;
+}
+
+.Form .radio-inputs .radio-with-label {
+	margin: 7px 10px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	line-height: 20px;
+}
+
+.Form .radio-inputs input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin: 0;
+	position: absolute;
+	visibility: hidden;
+}
+
+.Form .radio-inputs .checkmark {
+	min-width: 13px;
+	min-height: 13px;
+	background-color: #e0e0e0;
+	border-radius: 50%;
+	overflow: hidden;
+	color: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	pointer-events: none;
+}
+
+.Form .radio-inputs label {
+	padding-left: 23px;
+	color: black;
+}
+
+.Form .radio-inputs input:checked + .checkmark {
+	background-color: black;
+	color: white;
+}
+
+.Form button[type='submit'] {
+	background-color: black;
+	color: white;
+	border: none;
+	border-radius: 3.2px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	font-family: inherit;
+	font-weight: 500;
+	font-size: 13px;
+	line-height: 1.5em;
+	padding: 10px;
+}
+
+@media screen and (min-width: 992px) {
+	.Form {
+		padding: 40px;
+	}
+
+	.Form::after {
+		left: auto;
+		right: 133px;
+		bottom: -10px;
+		width: 241px;
+		height: 112px;
+	}
+
+	.Form .main-info {
+		display: flex;
+		flex-wrap: wrap;
+		margin: -22.5px -19.5px 22.5px;
+	}
+
+	.Form .label-with-input {
+		margin: 22.5px 19.5px;
+		width: calc(50% - 39px);
+	}
+
+	.Form .subject p {
+		margin-bottom: 14px;
+	}
+
+	.Form .main-info {
+		margin-bottom: 22.5px;
+	}
+
+	.Form .subject {
+		margin-bottom: 38px;
+	}
+
+	.Form .message {
+		margin-bottom: 45px;
+	}
+
+	.Form button[type='submit'] {
+		border-radius: 5px;
+		font-size: 16px;
+		padding: 15px 48px;
+		margin-left: auto;
+		margin-bottom: 62px;
+		width: auto;
+	}
+}

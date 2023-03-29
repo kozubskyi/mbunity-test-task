@@ -1,0 +1,88 @@
+.ContactInformation {
+	background-color: black;
+	color: white;
+	padding: 15px 25px 25px 25px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	position: relative;
+	overflow: hidden;
+}
+
+.ContactInformation::before {
+	content: '';
+	min-width: 54px;
+	min-height: 54px;
+	border-radius: 50%;
+	position: absolute;
+	bottom: 52px;
+	right: 26px;
+	background: rgba(72, 72, 72, 0.5);
+}
+
+.ContactInformation::after {
+	content: '';
+	min-width: 192px;
+	min-height: 192px;
+	border-radius: 50%;
+	position: absolute;
+	bottom: -90px;
+	right: -112px;
+	background: rgba(72, 72, 72, 0.4);
+}
+
+.ContactInformation h3 + p {
+	font-weight: 400;
+	font-size: 11px;
+	line-height: 1.5em;
+	text-align: center;
+	margin-bottom: 12px;
+	color: #c9c9c9;
+}
+
+.ContactInformation .Contacts {
+	margin-bottom: 58px;
+}
+
+.ContactInformation .Contacts a {
+	align-items: center;
+	text-align: center;
+}
+
+@media screen and (min-width: 992px) {
+	.ContactInformation {
+		padding: 40px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+	}
+
+	.ContactInformation::before {
+		min-width: 138px;
+		min-height: 138px;
+		bottom: 71px;
+		right: 70px;
+	}
+
+	.ContactInformation::after {
+		min-width: 269px;
+		min-height: 269px;
+		bottom: -86px;
+		right: -89px;
+	}
+
+	.ContactInformation h3 + p {
+		font-size: 18px;
+		text-align: left;
+		margin-bottom: 111px;
+	}
+
+	.ContactInformation .Contacts {
+		margin-bottom: 159px;
+	}
+
+	.ContactInformation .Contacts a {
+		align-items: flex-start;
+		text-align: left;
+	}
+}

@@ -1,0 +1,62 @@
+.BurgerMenu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	min-height: 100vh;
+	min-width: 100vw;
+	padding: 27.5px 0 30px 0;
+	background-color: black;
+	color: white;
+	z-index: 10;
+	overflow-x: hidden;
+}
+
+.BurgerMenu .Container {
+	position: relative;
+}
+
+.BurgerMenu .Logo {
+	display: inline-block;
+	margin: 4px 0 57px 0;
+}
+
+.BurgerMenu .NavBar {
+	flex-direction: column;
+	margin-bottom: 30px;
+}
+
+.BurgerMenu .NavBar li {
+	margin: 0 0 30px 0;
+}
+
+.BurgerMenu .HeaderIcons {
+	justify-content: center;
+}
+
+.BurgerMenu .HeaderIcons a {
+	border-color: white;
+}
+
+.BurgerMenu .close-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	right: 20px;
+	background-color: transparent;
+	color: inherit;
+	border: none;
+	padding: 0;
+	margin: 0;
+	min-width: 24px;
+	min-height: 24px;
+	overflow: hidden;
+}
+
+.BurgerMenu .close-button svg {
+	width: 20px;
+	height: 20px;
+}

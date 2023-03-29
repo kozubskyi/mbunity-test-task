@@ -1,0 +1,11 @@
+.Header nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 81px;
+}
+
+.navbar-and-icons {
+	display: flex;
+	align-items: center;
+}
