@@ -1,7 +1,12 @@
 import React from 'react'
 
 const HomePage = () => {
-	return <h2>HomePage</h2>
+	return (
+		<div className="HomePage page">
+			<h2>Home Page</h2>
+			<p>does not exist or is under construction</p>
+		</div>
+	)
 }
 
 export default HomePage

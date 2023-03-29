@@ -4,7 +4,7 @@ import HomePage from './pages/HomePage/HomePage'
 import FeaturesPage from './pages/FeaturesPage/FeaturesPage'
 import BlogPage from './pages/BlogPage/BlogPage'
 import ShopPage from './pages/ShopPage/ShopPage'
-import AboutPage from './pages/AboutePage/AboutPage'
+import AboutPage from './pages/AboutPage/AboutPage'
 import ContactPage from './pages/ContactPage/ContactPage'
 import CabinetPage from './pages/CabinetPage/CabinetPage'
 import CartPage from './pages/CartPage/CartPage'
@@ -18,7 +18,7 @@ function App() {
 			<main>
 				<Routes>
 					<Route path="/" element={<HomePage />} />
-					<Route path="/features" element={<FeaturesPage />} />
+					<Route path="/features/:feature" element={<FeaturesPage />} />
 					<Route path="/blog" element={<BlogPage />} />
 					<Route path="/shop" element={<ShopPage />} />
 					<Route path="/about" element={<AboutPage />} />

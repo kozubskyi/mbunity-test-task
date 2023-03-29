@@ -18,7 +18,7 @@ const HeaderIcons = ({ setIsBurgerMenuOpened }) => {
 	return (
 		<div className="HeaderIcons">
 			{iconList.map(({ route, icon }) => (
-				<NavLink to={route} onClick={setIsBurgerMenuOpened && (() => setIsBurgerMenuOpened(false))}>
+				<NavLink to={route} key={route} onClick={setIsBurgerMenuOpened && (() => setIsBurgerMenuOpened(false))}>
 					<Icon icon={icon} fontSize={18} />
 				</NavLink>
 			))}
