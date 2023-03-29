@@ -6,7 +6,7 @@ import './NavBar.css'
 const NavBar = ({ setIsBurgerMenuOpened }) => {
 	const [areFeaturesOptionsShown, setAreFeaturesOptionsShown] = useState(false)
 
-	const handleFeatureOptionClick = () => {
+	const handleLinkClick = () => {
 		setIsBurgerMenuOpened && setIsBurgerMenuOpened(false)
 		setAreFeaturesOptionsShown(false)
 	}
@@ -14,7 +14,7 @@ const NavBar = ({ setIsBurgerMenuOpened }) => {
 	return (
 		<ul className="NavBar">
 			<li className="item">
-				<NavLink to="/" onClick={setIsBurgerMenuOpened && (() => setIsBurgerMenuOpened(false))}>
+				<NavLink to="/" onClick={handleLinkClick}>
 					Home
 				</NavLink>
 			</li>
@@ -26,17 +26,17 @@ const NavBar = ({ setIsBurgerMenuOpened }) => {
 				{areFeaturesOptionsShown && (
 					<ul className="select-options">
 						<li>
-							<NavLink to="/features/first" onClick={handleFeatureOptionClick}>
+							<NavLink to="/features/first" onClick={handleLinkClick}>
 								First
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/features/second" onClick={handleFeatureOptionClick}>
+							<NavLink to="/features/second" onClick={handleLinkClick}>
 								Second
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/features/third" onClick={handleFeatureOptionClick}>
+							<NavLink to="/features/third" onClick={handleLinkClick}>
 								Third
 							</NavLink>
 						</li>
@@ -44,22 +44,22 @@ const NavBar = ({ setIsBurgerMenuOpened }) => {
 				)}
 			</li>
 			<li className="item">
-				<NavLink to="/blog" onClick={setIsBurgerMenuOpened && (() => setIsBurgerMenuOpened(false))}>
+				<NavLink to="/blog" onClick={handleLinkClick}>
 					Blog
 				</NavLink>
 			</li>
 			<li className="item">
-				<NavLink to="/shop" onClick={setIsBurgerMenuOpened && (() => setIsBurgerMenuOpened(false))}>
+				<NavLink to="/shop" onClick={handleLinkClick}>
 					Shop
 				</NavLink>
 			</li>
 			<li className="item">
-				<NavLink to="/about" onClick={setIsBurgerMenuOpened && (() => setIsBurgerMenuOpened(false))}>
+				<NavLink to="/about" onClick={handleLinkClick}>
 					About
 				</NavLink>
 			</li>
 			<li className="item">
-				<NavLink to="/contact" onClick={setIsBurgerMenuOpened && (() => setIsBurgerMenuOpened(false))}>
+				<NavLink to="/contact" onClick={handleLinkClick}>
 					Contact
 				</NavLink>
 			</li>
