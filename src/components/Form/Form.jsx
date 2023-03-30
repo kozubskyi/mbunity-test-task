@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useForm } from 'react-hook-form'
 import { Icon } from '@iconify/react'
 import './Form.css'
 
@@ -12,6 +13,22 @@ const Form = () => {
 		message: '',
 	}
 
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		// reset,
+		// watch,
+		// setValue,
+		// clearErrors,
+		// resetField,
+		// getValues,
+		// getFieldState,
+		// control,
+	} = useForm({
+		// mode: 'onChange',
+	})
+
 	const [form, setForm] = useState(initialState)
 
 	const localStorageName = 'mbunity-contact-form'
@@ -19,8 +36,21 @@ const Form = () => {
 	useEffect(() => {
 		const stringifiedForm = localStorage.getItem(localStorageName)
 
-		if (stringifiedForm) setForm(JSON.parse(stringifiedForm))
+		stringifiedForm && setForm(JSON.parse(stringifiedForm))
 	}, [])
+
+	// useEffect(() => {
+	// 	// заміна onInputChange
+	// 	const subscription = watch(currentForm => {
+	// 		setForm(currentForm)
+
+	// 		console.log({ currentForm })
+
+	// 		localStorage.setItem(localStorageName, JSON.stringify(currentForm))
+	// 	})
+
+	// 	return () => subscription.unsubscribe()
+	// }, [watch])
 
 	const onInputChange = evt => {
 		setForm(prevForm => {
@@ -33,37 +63,24 @@ const Form = () => {
 	}
 
 	const resetForm = () => {
+		// reset()
+
 		setForm(initialState)
 		localStorage.setItem(localStorageName, JSON.stringify(initialState))
 	}
 
 	const onFormSubmit = evt => {
-		evt.preventDefault()
-
 		let error = null
 
-		const keys = Object.keys(form).filter(key => key !== 'message')
-
-		for (let i = 0; i < keys.length; i++) {
-			const field = keys[i]
-			const value = form[field]
-
-			if (!value) {
-				error = `⚠️ Warning! Field "${field}" is required.`
-				break
-			}
-
-			if (value.length < 2) {
-				error = `⚠️ Warning! Field "${field}" must be greater than 1 character.`
-				break
-			}
+		if (!form.subject) {
+			error = `⚠️ Warning! Subject is required field`
 		}
 
 		if (!/^(\+380|380|0)\d{9}$/.test(form.phoneNumber)) {
 			error = `⚠️ Warning! Phone number must match one of the formats:
-+380991050088
-380991050088
-0991050088`
+      +380991050088
+      380991050088
+      0991050088`
 		}
 
 		if (error) return alert(error)
@@ -75,62 +92,80 @@ const Form = () => {
 	}
 
 	return (
-		<form className="Form" onSubmit={onFormSubmit}>
+		<form className="Form" onSubmit={handleSubmit(onFormSubmit)}>
 			<div className="main-info">
 				<div className="first-name label-with-input">
+					<p className="error-field">{errors.firstName?.message}</p>
 					<input
+						{...register('firstName', {
+							required: 'First Name is required field',
+							minLength: {
+								value: 2,
+								message: 'First Name must be greater than 1 character',
+							},
+							onChange: onInputChange,
+						})}
 						type="text"
 						id="first-name"
-						name="firstName"
 						placeholder="Denys"
-						min="2"
-						onChange={onInputChange}
 						value={form.firstName}
-						required
 					/>
 					<label htmlFor="first-name">First Name</label>
 				</div>
 				<div className="last-name label-with-input">
+					<p className="error-field">{errors.lastName?.message}</p>
 					<input
+						{...register('lastName', {
+							required: 'Last Name is required field',
+							minLength: {
+								value: 2,
+								message: 'Last Name must be greater than 1 character',
+							},
+							onChange: onInputChange,
+						})}
 						type="text"
 						id="last-name"
-						name="lastName"
 						placeholder="Kozubskyi"
-						min="2"
-						onChange={onInputChange}
 						value={form.lastName}
-						required
 					/>
 					<label htmlFor="last-name">Last Name</label>
 				</div>
 				<div className="email label-with-input">
+					<p className="error-field">{errors.email?.message}</p>
 					<input
+						{...register('email', {
+							required: 'Email is required field',
+							pattern: {
+								value:
+									/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+								message: 'Please enter valid email',
+							},
+							onChange: onInputChange,
+						})}
 						type="email"
 						id="email"
-						name="email"
 						placeholder="denys.kozubskyi@gmail.com"
-						onChange={onInputChange}
 						value={form.email}
-						required
 					/>
 					<label htmlFor="email">Email</label>
 				</div>
 				<div className="phone-number label-with-input">
+					<p className="error-field">{errors.phoneNumber?.message}</p>
 					<input
+						{...register('phoneNumber', {
+							required: 'Phone number is required field',
+							onChange: onInputChange,
+						})}
 						type="tel"
 						id="phone-number"
-						name="phoneNumber"
 						placeholder="+38 099 105 00 88"
-						// pattern={phoneNumberPattern}
-						onChange={onInputChange}
 						value={form.phoneNumber}
-						required
 					/>
 					<label htmlFor="phone-number">Phone Number</label>
 				</div>
 			</div>
 			<div className="subject">
-				<p>Select Subject?</p>
+				<p className="title">Select Subject?</p>
 				<div className="radio-inputs">
 					<div className="radio-with-label">
 						<input

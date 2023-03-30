@@ -18,7 +18,10 @@
 	background-size: 100%;
 }
 
-.Form .main-info,
+.Form .main-info {
+	margin-bottom: 5px;
+}
+
 .Form .subject,
 .Form .message {
 	margin-bottom: 25px;
@@ -32,8 +35,10 @@
 	font-weight: 500;
 }
 
-.Form .label-with-input {
-	margin-bottom: 20px;
+.Form .error-field {
+	min-height: 20px;
+	color: red;
+	font-size: 10px;
 }
 
 .Form label {
@@ -59,8 +64,7 @@
 	border-bottom: 1px solid black;
 }
 
-.Form input:focus-within + label,
-.Form .label-with-input input:valid + label {
+.Form input:focus-within + label {
 	color: black;
 }
 
@@ -68,7 +72,7 @@
 	font-weight: 500;
 }
 
-.Form .subject p {
+.Form .subject .title {
 	font-size: 14px;
 	font-weight: 600;
 	line-height: 1.5em;
@@ -159,11 +163,11 @@
 	.Form .main-info {
 		display: flex;
 		flex-wrap: wrap;
-		margin: -22.5px -19.5px 22.5px;
+		margin: -12.5px -19.5px 12.5px;
 	}
 
 	.Form .label-with-input {
-		margin: 22.5px 19.5px;
+		margin: 12.5px 19.5px;
 		width: calc(50% - 39px);
 	}
 
@@ -172,7 +176,7 @@
 	}
 
 	.Form .main-info {
-		margin-bottom: 22.5px;
+		margin-bottom: 12.5px;
 	}
 
 	.Form .subject {
