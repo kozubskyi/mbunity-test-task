@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { Icon } from '@iconify/react'
 import './BurgerMenu.css'
 import Container from '../Container/Container'
@@ -7,7 +8,7 @@ import NavBar from '../NavBar/NavBar'
 import HeaderIcons from '../HeaderIcons/HeaderIcons'
 
 const BurgerMenu = ({ setIsBurgerMenuOpened }) => {
-	return (
+	return ReactDOM.createPortal(
 		<div className="BurgerMenu">
 			<Container>
 				<Logo setIsBurgerMenuOpened={setIsBurgerMenuOpened} />
@@ -17,7 +18,8 @@ const BurgerMenu = ({ setIsBurgerMenuOpened }) => {
 				<NavBar setIsBurgerMenuOpened={setIsBurgerMenuOpened} />
 				<HeaderIcons setIsBurgerMenuOpened={setIsBurgerMenuOpened} />
 			</Container>
-		</div>
+		</div>,
+		document.getElementById('portal')
 	)
 }
 

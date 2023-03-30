@@ -9,7 +9,7 @@ import HeaderIcons from '../HeaderIcons/HeaderIcons'
 import BurgerMenu from '../BurgerMenu/BurgerMenu'
 
 const Header = () => {
-	const isMobile = useBreakpoint(992)
+	const isNotDesktop = useBreakpoint(992)
 	const [isBurgerMenuOpened, setIsBurgerMenuOpened] = useState(false)
 
 	useEffect(() => {
@@ -23,7 +23,7 @@ const Header = () => {
 			<Container>
 				<nav>
 					<Logo />
-					{isMobile ? (
+					{isNotDesktop ? (
 						<Burger setIsBurgerMenuOpened={setIsBurgerMenuOpened} />
 					) : (
 						<div className="navbar-and-icons">
@@ -33,7 +33,7 @@ const Header = () => {
 					)}
 				</nav>
 			</Container>
-			{isMobile && isBurgerMenuOpened && <BurgerMenu setIsBurgerMenuOpened={setIsBurgerMenuOpened} />}
+			{isNotDesktop && isBurgerMenuOpened && <BurgerMenu setIsBurgerMenuOpened={setIsBurgerMenuOpened} />}
 		</header>
 	)
 }
